@@ -258,7 +258,9 @@ $tablebutton->attributes['class'] = 'downloadreport';
 $btndownloadods = $OUTPUT->single_button(new moodle_url("report.php", array('id'=>$cm->id, 'download'=>'ods')), get_string("downloadods"));
 $btndownloadxls = $OUTPUT->single_button(new moodle_url("report.php", array('id'=>$cm->id, 'download'=>'xls')), get_string("downloadexcel"));
 $btndownloadtxt = $OUTPUT->single_button(new moodle_url("report.php", array('id'=>$cm->id, 'download'=>'txt')), get_string("downloadtext"));
-$tablebutton->data[] = array($btndownloadods, $btndownloadxls, $btndownloadtxt);
+$btnregenerate = $OUTPUT->single_button(new moodle_url("regeneratecertificates.php", array('id'=>$cm->id)), "Regenerate PDFs");
+
+$tablebutton->data[] = array($btndownloadods, $btndownloadxls, $btndownloadtxt, $btnregenerate);
 
 echo $OUTPUT->header();
 groups_print_activity_menu($cm, $CFG->wwwroot . '/mod/certificate/report.php?id='.$id);
